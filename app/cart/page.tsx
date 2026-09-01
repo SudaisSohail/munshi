@@ -12,7 +12,7 @@ export default function CartPage() {
     );
     const total = `\n*Total: Rs. ${Number(totalPrice).toLocaleString('en-US')}*`;
     return encodeURIComponent(
-      `Hi! I'd like to place an order from Munshi:\n\n${lines.join('\n')}${total}\n\nKindly confirm availability and payment details.`
+      `Hi! I'd like to place an order from E-Bazaar:\n\n${lines.join('\n')}${total}\n\nKindly confirm availability and payment details.`
     );
   }
 
@@ -86,7 +86,7 @@ export default function CartPage() {
               {items.map(item => {
                 const whatsappNum = item.sellers?.whatsapp_number?.replace(/\D/g, '');
                 const whatsappUrl = whatsappNum
-                  ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${item.product_name}" from Munshi. Is it still available?`)}`
+                  ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${item.product_name}" from E-Bazaar. Is it still available?`)}`
                   : null;
 
                 return (

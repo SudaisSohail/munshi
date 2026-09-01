@@ -30,7 +30,7 @@ export default function ProductCard({ product, animationDelay = 0 }: ProductCard
   const imageUrl = !imgError && product.image_urls?.[0];
   const whatsappNum = product.sellers?.whatsapp_number?.replace(/\D/g, '');
   const whatsappUrl = whatsappNum
-    ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${product.product_name}" listed on Munshi`)}`
+    ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${product.product_name}" listed on E-Bazaar`)}`
     : null;
 
   function handleAddToCart(e: React.MouseEvent) {

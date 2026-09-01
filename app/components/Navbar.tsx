@@ -46,7 +46,7 @@ export default function Navbar() {
               </svg>
             </div>
             <span style={{ fontWeight: 800, fontSize: 20, color: 'var(--slate-900)', letterSpacing: '-0.02em' }}>
-              munshi
+              E-Bazaar
             </span>
           </Link>
 
@@ -151,7 +151,7 @@ export default function Navbar() {
             <nav style={{ display: 'flex', flexDirection: 'column', padding: '0 var(--space-4) var(--space-4)' }}>
               <Link href="/" onClick={() => setMobileOpen(false)} style={{ padding: '12px 0', borderBottom: '1px solid var(--border)', fontWeight: 600, fontSize: 16 }}>Home</Link>
               <Link href="/products" onClick={() => setMobileOpen(false)} style={{ padding: '12px 0', borderBottom: '1px solid var(--border)', fontWeight: 600, fontSize: 16 }}>Browse Products</Link>
-              <Link href="/seller" onClick={() => setMobileOpen(false)} style={{ padding: '12px 0', fontWeight: 600, fontSize: 16 }}>Sell on Munshi</Link>
+              <Link href="/seller" onClick={() => setMobileOpen(false)} style={{ padding: '12px 0', fontWeight: 600, fontSize: 16 }}>Sell on E-Bazaar</Link>
             </nav>
           </div>
         </>

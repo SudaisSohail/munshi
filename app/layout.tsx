@@ -15,13 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Munshi — Your WhatsApp Marketplace",
+  title: "E-Bazaar — Your WhatsApp Marketplace",
   description:
-    "Shop from thousands of Pakistani sellers. List products effortlessly via WhatsApp voice messages. Munshi connects buyers and sellers across Pakistan.",
-  keywords: ["munshi", "whatsapp marketplace", "pakistan shopping", "online store pakistan", "sell on whatsapp"],
+    "Shop from thousands of Pakistani sellers. List products effortlessly via WhatsApp voice messages. E-Bazaar connects buyers and sellers across Pakistan.",
+  keywords: ["e-bazaar", "whatsapp marketplace", "pakistan shopping", "online store pakistan", "sell on whatsapp"],
   authors: [{ name: "Munshi" }],
   openGraph: {
-    title: "Munshi — Your WhatsApp Marketplace",
+    title: "E-Bazaar — Your WhatsApp Marketplace",
     description: "Shop from thousands of Pakistani sellers. List products via WhatsApp.",
     type: "website",
     locale: "en_PK",

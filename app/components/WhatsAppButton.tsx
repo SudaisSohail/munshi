@@ -5,7 +5,7 @@ interface WhatsAppButtonProps {
   message?: string;
 }
 
-export default function WhatsAppButton({ phoneNumber, message = "Hi! I found your store on Munshi" }: WhatsAppButtonProps) {
+export default function WhatsAppButton({ phoneNumber, message = "Hi! I found your store on E-Bazaar" }: WhatsAppButtonProps) {
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

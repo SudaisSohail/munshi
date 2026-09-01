@@ -12,7 +12,7 @@ export default function CartDrawer() {
     );
     const total = `\n*Total: Rs. ${Number(totalPrice).toLocaleString('en-US')}*`;
     return encodeURIComponent(
-      `Hi! I'd like to order from Munshi:\n\n${lines.join('\n')}${total}\n\nPlease confirm availability.`
+      `Hi! I'd like to order from E-Bazaar:\n\n${lines.join('\n')}${total}\n\nPlease confirm availability.`
     );
   }
 

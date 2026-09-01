@@ -59,7 +59,7 @@ export default function ProductDetailPage() {
   const images = product.image_urls?.length ? product.image_urls : [];
   const whatsappNum = product.sellers?.whatsapp_number?.replace(/\D/g, '');
   const whatsappUrl = whatsappNum
-    ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${product.product_name}" listed on Munshi. Is it available? 🛒`)}`
+    ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${product.product_name}" listed on E-Bazaar. Is it available? 🛒`)}`
     : null;
 
   function handleAddToCart() {

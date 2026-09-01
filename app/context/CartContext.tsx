@@ -103,7 +103,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Hydrate from localStorage
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('munshi-cart');
+      const saved = localStorage.getItem('e-bazaar-cart');
       if (saved) dispatch({ type: 'HYDRATE', payload: JSON.parse(saved) });
     } catch {}
   }, []);
@@ -111,7 +111,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Persist to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('munshi-cart', JSON.stringify(state.items));
+      localStorage.setItem('e-bazaar-cart', JSON.stringify(state.items));
     } catch {}
   }, [state.items]);
 
