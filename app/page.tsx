@@ -101,7 +101,7 @@ export default function Home() {
               </h1>
 
               <p style={{ fontSize: 18, lineHeight: 1.7, opacity: 0.9, marginBottom: 'var(--space-8)' }}>
-                Just send a voice message — Munshi's AI automatically lists your products on a beautiful storefront. No tech skills needed.
+                Just send a voice message — Munshi&apos;s AI automatically lists your products on a beautiful storefront. No tech skills needed.
               </p>
 
               <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
@@ -169,7 +169,7 @@ export default function Home() {
                 <div style={{ padding: 12 }}>
                   <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 4 }}>Embroidered Kameez</div>
                   <div style={{ fontWeight: 800, fontSize: 16, color: 'rgba(255,200,50,1)' }}>Rs. 2,500</div>
-                  <div style={{ fontSize: 11, opacity: 0.7, marginTop: 4 }}>by Fatima's Boutique</div>
+                  <div style={{ fontSize: 11, opacity: 0.7, marginTop: 4 }}>by Fatima&apos;s Boutique</div>
                 </div>
               </div>
               <div style={{ fontSize: 12, opacity: 0.8, textAlign: 'center' }}>
@@ -273,7 +273,7 @@ export default function Home() {
             Ready to Start Selling?
           </h2>
           <p style={{ fontSize: 17, color: 'var(--slate-400)', marginBottom: 'var(--space-8)', maxWidth: 480, margin: '0 auto var(--space-8)' }}>
-            Join thousands of Pakistani sellers already earning on E-Bazaar. It's 100% free.
+            Join thousands of Pakistani sellers already earning on E-Bazaar. It&apos;s 100% free.
           </p>
           <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a

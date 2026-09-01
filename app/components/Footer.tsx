@@ -35,7 +35,7 @@ export default function Footer() {
               <span style={{ fontWeight: 800, fontSize: 22, color: 'white', letterSpacing: '-0.02em' }}>E-Bazaar</span>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--slate-400)', maxWidth: 240 }}>
-              Pakistan's first WhatsApp-powered marketplace. List products by voice, reach millions of buyers.
+              Pakistan&apos;s first WhatsApp-powered marketplace. List products by voice, reach millions of buyers.
             </p>
             <div style={{ marginTop: 'var(--space-5)', display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={{
