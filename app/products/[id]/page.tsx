@@ -24,7 +24,7 @@ export default function ProductDetailPage() {
     async function fetch() {
       const { data } = await supabase
         .from('products')
-        .select('*, sellers(store_name, whatsapp_number)')
+        .select('*, sellers(store_name, whatsapp_number, contact_number)')
         .eq('id', id)
         .single();
 
@@ -35,7 +35,7 @@ export default function ProductDetailPage() {
       if (data.sellers) {
         const { data: rel } = await supabase
           .from('products')
-          .select('*, sellers(store_name, whatsapp_number)')
+          .select('*, sellers(store_name, whatsapp_number, contact_number)')
           .neq('id', id)
           .limit(4);
         if (rel) setRelated(rel as Product[]);
@@ -57,7 +57,7 @@ export default function ProductDetailPage() {
   if (!product) return notFound();
 
   const images = product.image_urls?.length ? product.image_urls : [];
-  const whatsappNum = product.sellers?.whatsapp_number?.replace(/\D/g, '');
+  const whatsappNum = (product.sellers?.contact_number || product.sellers?.whatsapp_number)?.replace(/\D/g, '');
   const whatsappUrl = whatsappNum
     ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${product.product_name}" listed on E-Bazaar. Is it available? 🛒`)}`
     : null;

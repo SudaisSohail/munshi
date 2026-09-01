@@ -84,7 +84,7 @@ export default function CartPage() {
               </div>
 
               {items.map(item => {
-                const whatsappNum = item.sellers?.whatsapp_number?.replace(/\D/g, '');
+                const whatsappNum = (item.sellers?.contact_number || item.sellers?.whatsapp_number)?.replace(/\D/g, '');
                 const whatsappUrl = whatsappNum
                   ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${item.product_name}" from E-Bazaar. Is it still available?`)}`
                   : null;

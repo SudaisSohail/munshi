@@ -27,7 +27,7 @@ export default function Home() {
     async function fetchProducts() {
       const { data, error } = await supabase
         .from('products')
-        .select('*, sellers(store_name, whatsapp_number)')
+        .select('*, sellers(store_name, whatsapp_number, contact_number)')
         .order('created_at', { ascending: false })
         .limit(8);
       if (!error && data) setProducts(data as Product[]);

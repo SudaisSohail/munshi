@@ -25,7 +25,7 @@ function SellerContent() {
       setLoading(true);
       const { data } = await supabase
         .from('products')
-        .select('*, sellers(store_name, whatsapp_number)')
+        .select('*, sellers(store_name, whatsapp_number, contact_number)')
         .eq('sellers.whatsapp_number', sellerParam)
         .order('created_at', { ascending: false });
       if (data) setProducts(data as Product[]);

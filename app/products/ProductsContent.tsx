@@ -35,7 +35,7 @@ export default function ProductsContent() {
     setLoading(true);
     let query = supabase
       .from('products')
-      .select('*, sellers(store_name, whatsapp_number)');
+      .select('*, sellers(store_name, whatsapp_number, contact_number)');
 
     if (searchQuery) {
       query = query.ilike('product_name', `%${searchQuery}%`);

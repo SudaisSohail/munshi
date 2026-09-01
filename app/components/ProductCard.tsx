@@ -13,7 +13,7 @@ export interface Product {
   description?: string;
   image_urls?: string[];
   category?: string;
-  sellers?: { store_name?: string; whatsapp_number?: string };
+  sellers?: { store_name?: string; whatsapp_number?: string; contact_number?: string };
   created_at?: string;
 }
 
@@ -28,7 +28,7 @@ export default function ProductCard({ product, animationDelay = 0 }: ProductCard
   const [adding, setAdding] = useState(false);
 
   const imageUrl = !imgError && product.image_urls?.[0];
-  const whatsappNum = product.sellers?.whatsapp_number?.replace(/\D/g, '');
+  const whatsappNum = (product.sellers?.contact_number || product.sellers?.whatsapp_number)?.replace(/\D/g, '');
   const whatsappUrl = whatsappNum
     ? `https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi! I'm interested in "${product.product_name}" listed on E-Bazaar`)}`
     : null;

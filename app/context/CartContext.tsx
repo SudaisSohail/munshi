@@ -8,7 +8,7 @@ export interface CartItem {
   retail_price: number;
   image_urls?: string[];
   quantity: number;
-  sellers?: { store_name?: string; whatsapp_number?: string };
+  sellers?: { store_name?: string; whatsapp_number?: string; contact_number?: string };
   cartQty: number;
 }
 
