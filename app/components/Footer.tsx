@@ -32,7 +32,7 @@ export default function Footer() {
                   <path d="M16.5 14.5c-.28.78-1.4 1.43-2.28 1.62-.61.13-1.41.23-4.09-.88-2.44-1.01-4-3.49-4.12-3.65-.12-.16-.99-1.31-.99-2.5s.62-1.77.84-2.01c.22-.24.48-.3.64-.3l.46.01c.15 0 .34-.06.53.4.2.48.68 1.65.74 1.77.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.24-.1.48.14.24.62 1.02 1.33 1.65.91.81 1.68 1.06 1.92 1.18.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.22 1.35z" fill="white"/>
                 </svg>
               </div>
-              <span style={{ fontWeight: 800, fontSize: 22, color: 'white', letterSpacing: '-0.02em' }}>munshi</span>
+              <span style={{ fontWeight: 800, fontSize: 22, color: 'white', letterSpacing: '-0.02em' }}>E-Bazaar</span>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--slate-400)', maxWidth: 240 }}>
               Pakistan's first WhatsApp-powered marketplace. List products by voice, reach millions of buyers.
@@ -62,8 +62,8 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               {[
                 { label: 'Browse Products', href: '/products' },
-                { label: 'Sell on Munshi', href: '/seller' },
-                { label: 'How It Works', href: '/#how-it-works' },
+                { label: 'Sell on E-Bazaar', href: '/seller' },
+
                 { label: 'My Cart', href: '/cart' },
               ].map(({ label, href }) => (
                 <li key={href}>
@@ -135,7 +135,7 @@ export default function Footer() {
           padding: 'var(--space-5) var(--space-4)',
         }}>
           <p style={{ fontSize: 13, color: 'var(--slate-500)' }}>
-            © {year} Munshi. All rights reserved.
+            © {year} E-Bazaar. All rights reserved.
           </p>
           <p style={{ fontSize: 13, color: 'var(--slate-500)', display: 'flex', alignItems: 'center', gap: 6 }}>
             Made with ❤️ in Pakistan 🇵🇰

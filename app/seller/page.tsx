@@ -9,7 +9,7 @@ import LoadingSkeleton from '../components/LoadingSkeleton';
 import { Product } from '../components/ProductCard';
 
 const WHATSAPP_NUMBER = '923460392313';
-const WHATSAPP_SELL_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Assalam o Alaikum! Main Munshi pe apna product list karna chahta hun\n\nI want to list my product on Munshi.')}`;
+const WHATSAPP_SELL_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Assalam o Alaikum! Main E-Bazaar pe apna product list karna chahta hun\n\nI want to list my product on E-Bazaar.')}`;
 
 export default function SellerPage() {
   const searchParams = useSearchParams();
@@ -95,7 +95,7 @@ export default function SellerPage() {
             {
               icon: '✅',
               title: 'Go Live Instantly',
-              desc: 'Your product appears on Munshi storefront within minutes. Buyers will find and contact you.',
+              desc: 'Your product appears on E-Bazaar storefront within minutes. Buyers will find and contact you.',
               step: '3',
             },
             {

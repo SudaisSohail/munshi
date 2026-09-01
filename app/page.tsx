@@ -7,26 +7,6 @@ import ProductGrid from './components/ProductGrid';
 import LoadingSkeleton from './components/LoadingSkeleton';
 import { Product } from './components/ProductCard';
 
-const HOW_IT_WORKS = [
-  {
-    step: '01',
-    emoji: '🎙️',
-    title: 'Send a Voice Message',
-    desc: 'Open WhatsApp, message Munshi, and describe your product — name, price, details — in your own words. No typing needed.',
-  },
-  {
-    step: '02',
-    emoji: '🤖',
-    title: 'AI Lists Your Product',
-    desc: 'Munshi\'s AI agent understands Urdu and English, extracts all details, and creates a beautiful listing automatically.',
-  },
-  {
-    step: '03',
-    emoji: '🛒',
-    title: 'Buyers Find You',
-    desc: 'Your product goes live on the Munshi storefront instantly. Buyers browse and contact you directly on WhatsApp.',
-  },
-];
 
 const CATEGORIES = [
   { label: 'Fashion', emoji: '👗' },
@@ -126,7 +106,7 @@ export default function Home() {
 
               <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
                 <a
-                  href="https://wa.me/923460392313?text=Assalam%20o%20Alaikum!%20I%20want%20to%20list%20my%20products%20on%20Munshi"
+                  href="https://wa.me/923460392313?text=Assalam%20o%20Alaikum!%20I%20want%20to%20list%20my%20products%20on%20E-Bazaar"
                   target="_blank"
                   rel="noreferrer"
                   id="hero-sell-btn"
@@ -179,7 +159,7 @@ export default function Home() {
               flexShrink: 0,
             }}>
               <div style={{ fontSize: 12, fontWeight: 600, opacity: 0.7, marginBottom: 'var(--space-4)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Live on Munshi
+                Live on E-Bazaar
               </div>
               {/* Fake product preview */}
               <div style={{ background: 'rgba(255,255,255,0.15)', borderRadius: 'var(--radius)', overflow: 'hidden', marginBottom: 'var(--space-3)' }}>
@@ -247,68 +227,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
-      <section id="how-it-works" className="section" style={{ background: 'var(--slate-50)' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: 'var(--space-10)' }}>
-            <div className="badge badge-primary" style={{ marginBottom: 'var(--space-3)' }}>Simple. Fast. Free.</div>
-            <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 'var(--space-3)' }}>
-              How Munshi Works
-            </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: 16, maxWidth: 500, margin: '0 auto' }}>
-              No app to download. No form to fill. Just WhatsApp.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: 'var(--space-6)',
-          }}>
-            {HOW_IT_WORKS.map(({ step, emoji, title, desc }, i) => (
-              <div
-                key={step}
-                className="animate-fadeInUp"
-                style={{
-                  animationDelay: `${i * 120}ms`,
-                  animationFillMode: 'both',
-                  background: 'var(--surface)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: 'var(--space-8)',
-                  border: '1px solid var(--border)',
-                  boxShadow: 'var(--shadow-sm)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                {/* Step number watermark */}
-                <div style={{
-                  position: 'absolute', top: -10, right: 16,
-                  fontSize: 80, fontWeight: 900, color: 'var(--primary)',
-                  opacity: 0.06, lineHeight: 1, pointerEvents: 'none',
-                }}>
-                  {step}
-                </div>
-
-                <div style={{
-                  width: 60, height: 60, borderRadius: 'var(--radius-md)',
-                  background: 'var(--primary-50)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 28, marginBottom: 'var(--space-5)',
-                }}>
-                  {emoji}
-                </div>
-
-                <div className="badge badge-primary" style={{ marginBottom: 'var(--space-3)', fontSize: 11 }}>
-                  Step {step}
-                </div>
-                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 'var(--space-3)' }}>{title}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: 14, lineHeight: 1.7 }}>{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── FEATURED PRODUCTS ── */}
       <section className="section">
@@ -355,11 +273,11 @@ export default function Home() {
             Ready to Start Selling?
           </h2>
           <p style={{ fontSize: 17, color: 'var(--slate-400)', marginBottom: 'var(--space-8)', maxWidth: 480, margin: '0 auto var(--space-8)' }}>
-            Join thousands of Pakistani sellers already earning on Munshi. It's 100% free.
+            Join thousands of Pakistani sellers already earning on E-Bazaar. It's 100% free.
           </p>
           <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="https://wa.me/923460392313?text=Assalam%20o%20Alaikum!%20I%20want%20to%20list%20my%20products%20on%20Munshi"
+              href="https://wa.me/923460392313?text=Assalam%20o%20Alaikum!%20I%20want%20to%20list%20my%20products%20on%20E-Bazaar"
               target="_blank"
               rel="noreferrer"
               id="cta-sell-btn"
