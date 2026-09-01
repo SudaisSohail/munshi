@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '../../lib/supabase';
@@ -11,7 +11,7 @@ import { Product } from '../components/ProductCard';
 const WHATSAPP_NUMBER = '923460392313';
 const WHATSAPP_SELL_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Assalam o Alaikum! Main E-Bazaar pe apna product list karna chahta hun\n\nI want to list my product on E-Bazaar.')}`;
 
-export default function SellerPage() {
+function SellerContent() {
   const searchParams = useSearchParams();
   const sellerParam = searchParams.get('seller') || '';
 
@@ -198,5 +198,13 @@ export default function SellerPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SellerPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 'var(--space-10)', textAlign: 'center' }}>Loading dashboard...</div>}>
+      <SellerContent />
+    </Suspense>
   );
 }
