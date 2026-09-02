@@ -24,16 +24,16 @@ export const metadata: Metadata = {
     title: "E-Bazaar — Your WhatsApp Marketplace",
     description: "Shop from thousands of Pakistani sellers. List products via WhatsApp.",
     type: "website",
-    locale: "en_PK",
-    verification: {
-      google: "Ow6S_w9xEw0EvkP1SnVOqfvoDwSHAgTEKkeTCKL6gZU"
-    }
+    locale: "en_PK"
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+          <meta name="google-site-verification" content="Ow6S_w9xEw0EvkP1SnVOqfvoDwSHAgTEKkeTCKL6gZU" />
+      </head>
       <body>
         <CartProvider>
           <Navbar />
