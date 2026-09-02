@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     description: "Shop from thousands of Pakistani sellers. List products via WhatsApp.",
     type: "website",
     locale: "en_PK",
+    verification: {
+      google: "Ow6S_w9xEw0EvkP1SnVOqfvoDwSHAgTEKkeTCKL6gZU"
+    }
   },
 };
 
