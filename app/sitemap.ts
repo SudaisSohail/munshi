@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : 'https://munshi-frontend.vercel.app');
+      : 'https://munshi-phi.vercel.app');
 
   // Fetch all product IDs dynamically from Supabase
   let productUrls: MetadataRoute.Sitemap = [];
