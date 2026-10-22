@@ -26,6 +26,7 @@ function SellerContent() {
         .from('products')
         .select('*, sellers(store_name, whatsapp_number, contact_number)')
         .eq('sellers.whatsapp_number', sellerParam)
+        .eq('status', 'active')
         .order('created_at', { ascending: false });
       if (data) setProducts(data as Product[]);
       setLoading(false);

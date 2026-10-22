@@ -13,6 +13,7 @@ export interface Product {
   description?: string;
   image_urls?: string[];
   category?: string;
+  status?: string;
   sellers?: { store_name?: string; whatsapp_number?: string; contact_number?: string };
   created_at?: string;
 }

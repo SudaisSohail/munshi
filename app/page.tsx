@@ -28,6 +28,7 @@ export default function Home() {
       const { data, error } = await supabase
         .from('products')
         .select('*, sellers(store_name, whatsapp_number, contact_number)')
+        .eq('status', 'active')
         .order('created_at', { ascending: false })
         .limit(8);
       if (!error && data) setProducts(data as Product[]);

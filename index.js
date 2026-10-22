@@ -645,7 +645,7 @@ YOU MUST REPLY IN: ${lang}
 Figure out what the seller wants to change. Only include fields they actually want changed.
 Respond with JSON:
 {
-  "updated_fields": { any of product_name, retail_price, wholesale_price, quantity, description, brand, category, color, condition — only changed keys, values in ENGLISH },
+  "updated_fields": { any of product_name, retail_price, wholesale_price, quantity, description, brand, category, color, condition, status — only changed keys, values in ENGLISH },
   "image_removals": [numbers] or null — which numbered image(s) to delete/replace, if any,
   "wants_auto_image": boolean,
   "new_image_position": number|null,
@@ -653,6 +653,7 @@ Respond with JSON:
   "wants_to_cancel": boolean, "reply_message": string
 }
 retail_price/wholesale_price must be plain numbers as strings if changed. category (if changed) MUST be exactly one of: Fashion, Electronics, Home & Living, Groceries, Beauty, Toys, Sports, Books, Other.
+status (if changed) MUST be "active" or "inactive". A request to delete/remove/hide/deactivate the PRODUCT or take it off the website means updated_fields.status:"inactive" (soft deletion), not wants_to_cancel. Queue this change for the normal save step and explain that saving will make the product inactive. Removing an IMAGE only uses image_removals and must not change product status.
 "REPLACE image N": image_removals includes N, wants_auto_image:true only if they want it auto-found — otherwise they'll send their own photo separately.
 IMPORTANT: "wants_to_finish" is true ONLY if the seller explicitly says they're done and want to save NOW (e.g. "save kar do", "bas", "done", "confirm kar do"). A bare "yes"/"haan" alone is NOT enough. In that case, reply_message should summarize what's queued and ask "anything else to change, or should I save this now?" — not a plain yes/no question.
 If seller wants to cancel/stop editing entirely: wants_to_cancel:true.` + languageDirective(session);
@@ -1033,7 +1034,7 @@ async function executePendingAction(session, senderJid) {
     }
 
     if (action.type === 'delete_product') {
-        const { error } = await supabase.from('products').update({ status: 'deleted', updated_at: new Date().toISOString() }).eq('id', action.productId);
+        const { error } = await supabase.from('products').update({ status: 'inactive', updated_at: new Date().toISOString() }).eq('id', action.productId);
         if (error) throw error;
         return lang === 'ur' ? `"${action.productName}" delete ho gaya.` : `"${action.productName}" has been deleted.`;
     }

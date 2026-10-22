@@ -26,7 +26,8 @@ export default function ProductDetailPage() {
         .from('products')
         .select('*, sellers(store_name, whatsapp_number, contact_number)')
         .eq('id', id)
-        .single();
+        .eq('status', 'active')
+        .maybeSingle();
 
       if (!data) { setLoading(false); return; }
       setProduct(data as Product);
@@ -36,6 +37,7 @@ export default function ProductDetailPage() {
         const { data: rel } = await supabase
           .from('products')
           .select('*, sellers(store_name, whatsapp_number, contact_number)')
+          .eq('status', 'active')
           .neq('id', id)
           .limit(4);
         if (rel) setRelated(rel as Product[]);
