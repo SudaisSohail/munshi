@@ -91,7 +91,6 @@ munshi-frontend/
 ├── lib/
 │   └── supabase.js                     # Supabase browser client initialization
 ├── index.js                            # Core Munshi WhatsApp Bot (Baileys + AI pipeline)
-├── index-old.js                        # Previous bot iteration backup
 ├── list-models.js                      # Diagnostic script to list available Gemini models
 ├── package.json                        # Dependencies & npm scripts
 ├── tsconfig.json                       # TypeScript configuration
@@ -108,8 +107,8 @@ The bot operates as an event-driven daemon running on Node.js using `@whiskeysoc
 
 1. **Connection & Concurrency:**
    - **WhatsApp Pairing**: Authenticates via pairing codes using `useMultiFileAuthState('auth_session')`.
-   - **Per-Sender Lock (`runExclusive`)**: Implements sequential Promise chains (`senderLocks`) keyed by WhatsApp JID to prevent race conditions during rapid audio or text messages.
-   - **Session Lifecycle**: In-memory sessions are maintained in `sessions` Map; an automatic cleanup sweeps sessions inactive for 24 hours.
+   - **Per-Sender Lock (`runExclusive`)**: Implements sequential Promise chains (`senderLocks`) keyed by WhatsApp JID to prevent race conditions during rapid audio or text messages; automatically prunes finished locks to prevent memory leaks.
+   - **Session Lifecycle**: In-memory sessions are maintained in `sessions` Map with a **10-minute inactivity timeout** (`SESSION_TIMEOUT_MS = 10 * 60 * 1000`). Background cleanup runs every minute while strictly preserving active locks/queued work.
 
 2. **Multilingual Speech-to-Text Pipeline:**
    - Transcribes voice notes (`.ogg`) using **Groq Whisper Large v3** (`transcribeAudio`).

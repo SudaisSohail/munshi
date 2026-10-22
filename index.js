@@ -60,6 +60,9 @@ function runExclusive(jid, task) {
     const prevPromise = senderLocks.get(jid) || Promise.resolve();
     const runPromise = prevPromise.then(() => task()).catch((err) => console.error('Task error in lock chain:', err));
     senderLocks.set(jid, runPromise);
+    runPromise.finally(() => {
+        if (senderLocks.get(jid) === runPromise) senderLocks.delete(jid);
+    });
     return runPromise;
 }
 
@@ -469,6 +472,7 @@ If NOT a switch request, requests_switch: false, everything else null/false.`;
 
 // ---- Session ----
 const sessions = new Map();
+const SESSION_TIMEOUT_MS = 10 * 60 * 1000;
 
 function blankProduct() {
     return {
@@ -495,24 +499,28 @@ function blankSession(nativeLanguage = null, languageOverride = null, scriptPref
         editingImages: null,
         disambiguating: null,
         lastSearchResults: null,
-        lastActivity: Date.now(), // NEW: drives the 24h session sweep
+        lastActivity: Date.now(),
     };
 }
 
 function getSession(jid) {
-    if (!sessions.has(jid)) sessions.set(jid, blankSession());
+    const now = Date.now();
+    const existing = sessions.get(jid);
+    if (!existing || (!senderLocks.has(jid) && now - existing.lastActivity >= SESSION_TIMEOUT_MS)) {
+        sessions.set(jid, blankSession());
+    }
     const session = sessions.get(jid);
-    session.lastActivity = Date.now(); // NEW: refresh on every touch
+    session.lastActivity = now;
     return session;
 }
 
-// ---- NEW: sweeps sessions untouched for 24h, checked every 30 minutes ----
+// Expire inactive sessions every minute; preserve active or queued work.
 setInterval(() => {
-    const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+    const cutoff = Date.now() - SESSION_TIMEOUT_MS;
     for (const [jid, s] of sessions) {
-        if (s.lastActivity && s.lastActivity < cutoff) sessions.delete(jid);
+        if (s.lastActivity <= cutoff && !senderLocks.has(jid)) sessions.delete(jid);
     }
-}, 30 * 60 * 1000);
+}, 60 * 1000);
 
 function computeMissingFields(product) {
     return ['product_name', 'retail_price', 'quantity', 'description'].filter((key) => !product[key]);
@@ -1118,6 +1126,7 @@ async function startBot() {
             }
         }
         const senderJid = msg.key.remoteJid;
+        getSession(senderJid); // Check expiry and refresh activity at message arrival, before queuing.
         console.log(`[JID CHECK] senderJid=${senderJid}`); // temporary diagnostic — remove once JID stability is confirmed
         await runExclusive(senderJid, () => processMessage(msg, senderJid, sock));
     });
@@ -1125,7 +1134,7 @@ async function startBot() {
     // UPDATED: this is your entire previous handler body, unchanged internally, now wrapped by the lock above
     async function processMessage(msg, senderJid, sock) {
         const messageType = Object.keys(msg.message)[0];
-        const session = getSession(senderJid);
+        const session = sessions.get(senderJid);
 
         const resolvedNumber = resolvePhoneNumber(msg, senderJid);
         if (resolvedNumber) session.contactNumber = resolvedNumber;
